@@ -1,4 +1,4 @@
-package com.example.afinal
+package com.example.afinal.models
 
 data class Question(
     val category: String,

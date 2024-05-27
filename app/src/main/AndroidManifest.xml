@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Final"
         tools:targetApi="31">
+        <activity
+            android:name=".NumberOfQuestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NumberOfQuestionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CatagoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DiffcultyActivity"
+            android:exported="false" />
         <activity
             android:name=".MultipleChoiceActivity"
             android:exported="false" />
