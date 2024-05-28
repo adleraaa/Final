@@ -21,18 +21,6 @@
             android:name=".MultipleChoiceActivity"
             android:exported="false" />
         <activity
-            android:name=".NumberOfQuestionsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NumberOfQuestionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CatagoryActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DiffcultyActivity"
-            android:exported="false" />
-        <activity
             android:name=".TrueFalseActivity"
             android:exported="false" />
         <activity

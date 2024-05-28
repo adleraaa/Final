@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         if(myObject!==null){
             textView.text = myObject.type
         }
+
         findViewById<Button>(R.id.button_MainAcrtivity_Numbers).setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
         }

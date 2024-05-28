@@ -1,10 +1,12 @@
 <resources>
     <string-array name="difficulty_levels">
+        <item>Any difficulty</item>
         <item>Easy</item>
         <item>Medium</item>
         <item>Hard</item>
     </string-array>
     <string-array name="categories">
+        <item>Any Category</item>
         <item>General Knowledge</item>
         <item>Entertainment: Books</item>
         <item>Entertainment: Film</item>
@@ -29,5 +31,10 @@
         <item>Science: Gadgets</item>
         <item>Entertainment: Japanese Anime &amp; Manga</item>
         <item>Entertainment: Cartoon &amp; Animations</item>
+    </string-array>
+    <string-array name="types">
+        <item>Any Type</item>
+        <item>Multiple Choice</item>
+        <item>True/False</item>
     </string-array>
 </resources>
