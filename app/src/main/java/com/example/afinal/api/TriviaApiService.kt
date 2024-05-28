@@ -15,3 +15,5 @@ interface TriviaApiService {
         @Query("type") type: String
     ): Call<TriviaResponse>
 }
+
+

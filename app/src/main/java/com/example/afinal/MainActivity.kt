@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 private fun startGame(){
-    
+
     startActivity(Intent(this, TrueFalseActivity::class.java))
 
 }
