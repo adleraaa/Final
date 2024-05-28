@@ -9,3 +9,6 @@ class TrueFalseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_true_false)
     }
 }
+
+
+

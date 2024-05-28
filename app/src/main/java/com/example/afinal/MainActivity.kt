@@ -17,21 +17,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var textView = findViewById<TextView>(R.id.textView_MainAcrtivity_Welcome)
-        val myObject: Setting? = intent.getParcelableExtra("myObject")
+        var myObject: Setting? = intent.getParcelableExtra("myObject")
+        var setting = Setting("Any Category", "Any type", "Any difficulty", 10 )
 
-        if(myObject!==null){
-            textView.text = myObject.type
-        }
+
 
         findViewById<Button>(R.id.button_MainAcrtivity_Numbers).setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
         }
 
         findViewById<Button>(R.id.button_MainActivity_BeginGame).setOnClickListener {
+            if(myObject!==null){
+                setting = myObject
+            }
             startGame()
         }
     }
 private fun startGame(){
+    
+    startActivity(Intent(this, TrueFalseActivity::class.java))
 
 }
 }
