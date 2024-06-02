@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -54,13 +55,14 @@ class SettingActivity : AppCompatActivity() {
             val selectedDifficulty = spinnerDifficulty.selectedItem.toString()
             val selectedType = spinnerType.selectedItem.toString()
             val editTextNumber = findViewById<EditText>(R.id.EditText_SettingActivity_Numbers)
-            val input = editTextNumber.inputType
+            val input = editTextNumber.text.toString().toIntOrNull() ?: 10
 
-            val setting= Setting (selectedCategory, selectedType, selectedDifficulty,input)
-
+            val setting= Setting (selectedCategory, selectedType, selectedDifficulty, input)
+            Log.d("TrueFalseActivity", "Wrong Answer! Score: $input")
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtra("myObject", setting)
             startActivity(intent)
+            finish()
         }
 
 

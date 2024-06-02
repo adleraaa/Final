@@ -3,6 +3,7 @@ package com.example.afinal
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.afinal.api.RetrofitInstance
 import com.example.afinal.models.CurrentQuestion
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private var type: String? = null
     private var difficulty: String? = null
     private var amount = 10
+
     val categoryMap = mapOf(
         "General Knowledge" to 9,
         "Entertainment: Books" to 10,
@@ -51,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var myObject: Setting? = intent.getParcelableExtra("myObject")
+        val myObject: Setting? = intent.getParcelableExtra("myObject")
 
         findViewById<Button>(R.id.button_MainAcrtivity_Numbers).setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
@@ -61,6 +63,7 @@ class MainActivity : AppCompatActivity() {
             myObject?.let {
                 setting = it
             }
+
             startGame()
         }
     }
@@ -72,23 +75,19 @@ class MainActivity : AppCompatActivity() {
             "True/False" -> "boolean"
             else -> null
         }
-        amount = setting.numbeerOfQuestion
+        amount = setting.numberOfQuestion
         categoryId = setting.category?.let { getCategoryID(it) }
 
         fetchQuestions(amount, setting.category, difficulty, type) { questions ->
             questions?.let {
-                if (it.isNotEmpty() && it[0].type == "multiple") {
-                    val currentQuestion = CurrentQuestion(0, amount, 0, it)
-                    val intent = Intent(this, MultipleChoiceActivity::class.java)
-                    intent.putExtra("status", currentQuestion)
-                    startActivity(intent)
+                val currentQuestion = CurrentQuestion(0, amount, 0, it)
+                val intent = if (it.isNotEmpty() && it[0].type == "multiple") {
+                    Intent(this, MultipleChoiceActivity::class.java)
+                } else {
+                    Intent(this, TrueFalseActivity::class.java)
                 }
-                else{
-                    val currentQuestion = CurrentQuestion(0, amount, 0, it)
-                    val intent = Intent(this, TrueFalseActivity::class.java)
-                    intent.putExtra("status", currentQuestion)
-                    startActivity(intent)
-                }
+                intent.putExtra("status", currentQuestion)
+                startActivity(intent)
             }
         }
     }

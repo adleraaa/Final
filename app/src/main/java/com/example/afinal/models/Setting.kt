@@ -9,6 +9,6 @@ data class Setting(
     val category: String?,
     val type: String?,
     val difficulty: String?,
-    val numbeerOfQuestion: Int
+    val numberOfQuestion: Int
 
 ): Parcelable
