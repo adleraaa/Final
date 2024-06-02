@@ -104,11 +104,10 @@ class TrueFalseActivity : AppCompatActivity() {
 
     private fun endQuiz() {
         Log.d("TrueFalseActivity", "Quiz ended. Final score: $score")
-        Toast.makeText(this, "Quiz over! Your score: $score", Toast.LENGTH_LONG).show()
         // Optionally, navigate back to the main activity or show a summary screen
         val finalResult =  FinalResult(score, currentQuestion.total)
         val intent = Intent(this, GameOverActivity::class.java)
-        intent.putExtra("status", finalResult)
+        intent.putExtra("final result", finalResult)
         startActivity(intent)
         finish()
     }

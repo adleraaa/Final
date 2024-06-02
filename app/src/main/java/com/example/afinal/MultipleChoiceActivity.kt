@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.afinal.models.CurrentQuestion
+import com.example.afinal.models.FinalResult
 
 class MultipleChoiceActivity : AppCompatActivity() {
     private lateinit var currentQuestion: CurrentQuestion
@@ -109,7 +110,10 @@ class MultipleChoiceActivity : AppCompatActivity() {
 
     private fun endQuiz() {
         Log.d("MultipleChoiceActivity", "Quiz ended. Final score: $score")
-        Toast.makeText(this, "Quiz over! Your score: $score", Toast.LENGTH_LONG).show()
-        // Optionally, navigate back to the main activity or show a summary screen
+        val finalResult =  FinalResult(score, currentQuestion.total)
+        val intent = Intent(this, GameOverActivity::class.java)
+        intent.putExtra("final result", finalResult)
+        startActivity(intent)
+        finish()
     }
 }
