@@ -13,4 +13,5 @@ object RetrofitInstance {
     }
 
 
+    val api: TriviaApiService = getInstance().create(TriviaApiService::class.java)
 }
